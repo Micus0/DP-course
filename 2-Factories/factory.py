@@ -45,6 +45,7 @@ class Point:
 
     factory = Factory()
 
+
 # take out factory methods to a separate class
 class PointFactory:
     @staticmethod

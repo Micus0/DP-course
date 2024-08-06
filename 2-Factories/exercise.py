@@ -1,26 +1,24 @@
-from unittest import TestCase
-
-
 class Person:
     def __init__(self, id, name):
         self.id = id
         self.name = name
 
+    def __str__(self):
+        return f"id: {self.id}, name: {self.name}"
+
+
 class PersonFactory:
-    id = 0
+    def __init__(self):
+        self.id = -1
 
     def create_person(self, name):
-        p = Person(PersonFactory.id, name)
-        PersonFactory.id += 1
-        return p
+        self.id += 1
+        return Person(self.id, name)
 
-class Evaluate(TestCase):
-    def test_exercise(self):
-        pf = PersonFactory()
 
-        p1 = pf.create_person('Chris')
-        self.assertEqual(p1.name, 'Chris')
-        self.assertEqual(p1.id, 0)
+pf = PersonFactory()
+p1 = pf.create_person("Chri")
+p2 = pf.create_person("Teo")
 
-        p2 = pf.create_person('Sarah')
-        self.assertEqual(p2.id, 1)
+print(p1)
+print(p2)
