@@ -10,6 +10,7 @@ class Address:
     def __str__(self):
         return f'{self.street_address}, Suite #{self.suite}, {self.city}'
 
+
 class Employee:
     def __init__(self, name, address):
         self.address = address
@@ -44,15 +45,15 @@ class EmployeeFactory:
             name, suite
         )
 
+
 # main_office_employee = Employee("", Address("123 East Dr", 0, "London"))
 # aux_office_employee = Employee("", Address("123B East Dr", 0, "London"))
 
 # john = copy.deepcopy(main_office_employee)
-#john.name = "John"
-#john.address.suite = 101
-#print(john)
+# john.name = "John"
+# john.address.suite = 101
+# print(john)
 
 # would prefer to write just one line of code
 jane = EmployeeFactory.new_aux_office_employee("Jane", 200)
 print(jane)
-
