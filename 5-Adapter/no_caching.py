@@ -32,7 +32,8 @@ class LineToPointAdapter(list):
     count = 0
 
     def __init__(self, line):
-        self.count += 1
+        super().__init__()
+        LineToPointAdapter.count += 1
         print(f'{self.count}: Generating points for line '
               f'[{line.start.x},{line.start.y}]→'
               f'[{line.end.x},{line.end.y}]')
@@ -50,8 +51,6 @@ class LineToPointAdapter(list):
                 self.append(Point(x, top))
 
 
-
-
 def draw(rcs):
     print("\n\n--- Drawing some stuff ---\n")
     for rc in rcs:
@@ -59,6 +58,7 @@ def draw(rcs):
             adapter = LineToPointAdapter(line)
             for p in adapter:
                 draw_point(p)
+
 
 if __name__ == '__main__':
     rs = [

@@ -38,7 +38,7 @@ class LineToPointAdapter:
             return
 
         super().__init__()
-        self.count += 1
+        LineToPointAdapter.count += 1
         print(f'{self.count}: Generating points for line ' +
               f'[{line.start.x},{line.start.y}]→[{line.end.x},{line.end.y}]')
 
@@ -60,6 +60,7 @@ class LineToPointAdapter:
 
     def __iter__(self):
         return iter(self.cache[self.h])
+
 
 def draw(rcs):
     print('Drawing some rectangles...')
