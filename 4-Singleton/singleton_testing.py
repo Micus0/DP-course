@@ -49,6 +49,7 @@ class DummyDatabase:
     def get_population(self, name):
         return self.population[name]
 
+
 class SingletonTests(unittest.TestCase):
     def test_is_singleton(self):
         db = Database()
@@ -70,6 +71,7 @@ class SingletonTests(unittest.TestCase):
             crf.total_population(['alpha', 'beta']),
             3
         )
+
 
 if __name__ == '__main__':
     unittest.main()

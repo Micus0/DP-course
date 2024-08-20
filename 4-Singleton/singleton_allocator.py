@@ -1,5 +1,6 @@
 import random
 
+
 class Database:
     initialized = False
 

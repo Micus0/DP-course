@@ -30,6 +30,7 @@ class CFO(Monostate):
     def __str__(self):
         return f'{self.name} manages ${self.money_managed}bn'
 
+
 if __name__ == '__main__':
     ceo1 = CEO()
     print(ceo1)
