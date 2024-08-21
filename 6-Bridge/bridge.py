@@ -1,7 +1,10 @@
 # Circles and squares
 # Each can be rendered in vector or raster form
 
-class Renderer():
+from abc import ABC
+
+
+class Renderer(ABC):
     def render_circle(self, radius):
         pass
 
@@ -16,7 +19,7 @@ class RasterRenderer(Renderer):
         print(f'Drawing pixels for circle of radius {radius}')
 
 
-class Shape:
+class Shape(ABC):
     def __init__(self, renderer):
         self.renderer = renderer
 
