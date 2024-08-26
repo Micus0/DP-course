@@ -9,7 +9,7 @@ class Circle:
         self.radius *= factor
 
     def __str__(self):
-        return f"A circle of radius {self.radius}"
+        return 'A circle of radius %s' % self.radius
 
 
 class Square:
@@ -17,7 +17,7 @@ class Square:
         self.side = side
 
     def __str__(self):
-        return f"A square with side {self.side}"
+        return 'A square with side %s' % self.side
 
 
 class ColoredShape:
@@ -26,20 +26,13 @@ class ColoredShape:
         self.shape = shape
 
     def resize(self, factor):
-        # note that a Square doesn't have resize()
-
-        # in comparison with the solution, here the method isn't generalised
-        # if we were to add another form, we would have to change the code below
-        # and this would violate the OCP
-
-        if isinstance(self.shape, Square):
-            # raise Exception('Cannot apply resize on square')
-            return 'Cannot apply resize on square'
-        else:
+        r = getattr(self.shape, 'resize', None)
+        if callable(r):
             self.shape.resize(factor)
 
     def __str__(self):
-        return f"{self.shape} has the color {self.color}"
+        return "%s has the color %s" % \
+            (self.shape, self.color)
 
 
 class Evaluate(TestCase):
