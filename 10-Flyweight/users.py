@@ -2,9 +2,11 @@ import random
 import string
 import sys
 
+
 class User:
     def __init__(self, name):
         self.name = name
+
 
 class User2:
     strings = []
@@ -20,6 +22,7 @@ class User2:
 
     def __str__(self):
         return ' '.join([self.strings[x] for x in self.names])
+
 
 def random_string():
     chars = string.ascii_lowercase
